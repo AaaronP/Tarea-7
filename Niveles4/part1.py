@@ -1,18 +1,20 @@
-# def nivel(T, n):
-#     if not T:
-#         return -1
+def nivel(T, n, current_level=0):
+    if not T:
+        return []
 
-#     v, left, right = T
+    v, left, right = T
 
-#     if n == v:
-#         return 0
+    if n == v:
+        return [current_level]
 
-#     level_left = nivel(left, n)
-#     level_right = nivel(right, n)
+    level_left = nivel(left, n, current_level + 1)
+    level_right = nivel(right, n, current_level + 1)
 
-#     if level_left >= 0:
-#         return level_left + 1
-#     elif level_right >= 0:
-#         return level_right + 1
-#     else:
-#         return -1
+    if level_left:
+        return level_left
+    elif level_right:
+        return level_right
+    else:
+        return []
+    
+print(nivel([50, [25, [15, [5, [5, [],[]],[]], []], []], [75, [5, [], []], []]], 5))

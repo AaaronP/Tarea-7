@@ -4,4 +4,4 @@ def preOrderInv(T):
 
     v, L, R = T
 
-    return [v] + preOrderInv(L) + preOrderInv(R)
+    return [v] + preOrderInv(R) + preOrderInv(L)

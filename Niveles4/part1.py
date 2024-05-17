@@ -1,20 +1,21 @@
-def nivel(T, n, current_level=0):
+def aux(T, n, levels, level):
+    if not T:
+        return
+
+    node, left, right = T
+
+    if node == n:
+        levels.append(level)
+
+    aux(left, n, levels, level + 1)
+    aux(right, n, levels, level + 1)
+
+
+def levels(T, n):
     if not T:
         return []
 
-    v, left, right = T
+    levels = []
 
-    if n == v:
-        return [current_level]
-
-    level_left = nivel(left, n, current_level + 1)
-    level_right = nivel(right, n, current_level + 1)
-
-    if level_left:
-        return level_left
-    elif level_right:
-        return level_right
-    else:
-        return []
-    
-print(nivel([50, [25, [15, [5, [5, [],[]],[]], []], []], [75, [5, [], []], []]], 5))
+    aux(T, n, levels, 0)
+    return levels

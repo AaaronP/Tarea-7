@@ -37,6 +37,7 @@ def nivel(T, n):
         return -1
 
 
+# Arbol binario
 def balanceado(T):
     hojs = hojas(T)
 

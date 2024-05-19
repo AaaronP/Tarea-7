@@ -33,5 +33,8 @@ def maxValue(T):
     return mx
 
 
+# Arbol n nario
 def rutaMayor(T):
     return ruta(T, maxValue(T))
+
+print(rutaMayor([80, [[25,[]], [75,[]]]]))
